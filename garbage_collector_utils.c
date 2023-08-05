@@ -12,7 +12,7 @@
 
 #include "garbage_collector.h"
 
-t_garbage_list	*glist_addfront(t_garbage_list **glist, t_garbage_list *node)
+void	glist_addfront(t_garbage_list **glist, t_garbage_list *node)
 {
 	if (*glist != NULL)
 		node->next = *glist;

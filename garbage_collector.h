@@ -33,7 +33,7 @@ void			*gc_malloc(size_t size, void *del);
 void			gc_freeall(void) __attribute__((destructor));
 
 /*	UTILS	*/
-t_garbage_list	*glist_addfront(t_garbage_list **glist, t_garbage_list *node);
+void			glist_addfront(t_garbage_list **glist, t_garbage_list *node);
 t_garbage_list	*glistnew(size_t size, void *del);
 void			glistclear(t_garbage_list **list);
 t_garbage_list	*get_gcnode(void *memory);
