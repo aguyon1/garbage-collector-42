@@ -6,7 +6,7 @@
 /*   By: aguyon <aguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 09:48:23 by aguyon            #+#    #+#             */
-/*   Updated: 2023/08/28 22:54:50 by aguyon           ###   ########.fr       */
+/*   Updated: 2023/08/29 01:33:00 by aguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ void	memory_list_add(t_memory_list **mlist, t_memory_list *node)
 		(*mlist)->prev = node;
 	*mlist = node;
 }
-
-// deux <-> un <-> NULL
-
 
 t_memory_list	*memory_list_new(size_t size, void *del)
 {

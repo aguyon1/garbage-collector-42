@@ -6,12 +6,12 @@
 /*   By: aguyon <aguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 09:42:48 by aguyon            #+#    #+#             */
-/*   Updated: 2023/08/28 22:23:40 by aguyon           ###   ########.fr       */
+/*   Updated: 2023/08/29 01:32:31 by aguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GARBAGE_COLLECTOR_H
-# define GARBAGE_COLLECTOR_H
+#ifndef ALLOCATION_H
+# define ALLOCATION_H
 
 # include <stdlib.h>
 # include <stddef.h>
@@ -21,7 +21,7 @@ typedef enum e_alloc_flag
 	ALLOC = 0b00000001,
 	FREE = 0b00000010,
 	FREEALL = 0b00000100,
-} t_alloc_flag;
+}	t_alloc_flag;
 
 typedef struct s_memory_list	t_memory_list;
 
