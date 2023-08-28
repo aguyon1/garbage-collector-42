@@ -6,14 +6,14 @@
 #    By: aguyon <aguyon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/05 10:37:27 by aguyon            #+#    #+#              #
-#    Updated: 2023/08/28 22:58:03 by aguyon           ###   ########.fr        #
+#    Updated: 2023/08/28 22:58:57 by aguyon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = allocation.c \
-	  allocation_utils.c
+SRC =	allocation.c \
+		allocation_utils.c
 
-HEADER = allocation.h
+HEADER =	allocation.h
 
 OBJ = $(SRC:.c=.o)
 
