@@ -1,1 +1,1 @@
-# garbage-collector-42
+unconstrained allocation 42
