@@ -6,23 +6,11 @@
 /*   By: aguyon <aguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 09:42:38 by aguyon            #+#    #+#             */
-/*   Updated: 2023/08/28 22:36:08 by aguyon           ###   ########.fr       */
+/*   Updated: 2023/10/10 22:23:48 by aguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "allocation.h"
-
-static void	handle_alloc(t_memory_list *node, t_alloc_flag flag)
-{
-	static t_memory_list	*memory_list = NULL;
-
-	if (flag & ALLOC)
-		memory_list_add(&memory_list, node);
-	else if (flag & FREEALL)
-		memory_list_clear(&memory_list);
-	else if (flag & FREE)
-		memory_list = node;
-}
 
 void	*xmalloc(size_t size)
 {
@@ -30,16 +18,16 @@ void	*xmalloc(size_t size)
 
 	node = memory_list_new(size, NULL);
 	if (node == NULL)
-		return (NULL);
+		exit(1);
 	handle_alloc(node, ALLOC);
 	return (node->memory);
 }
 
-void	*xmalloc_del(size_t size, void *del)
+void	*xmalloc_dtor(size_t size, void *dtor)
 {
 	t_memory_list	*node;
 
-	node = memory_list_new(size, del);
+	node = memory_list_new(size, dtor);
 	if (node == NULL)
 		exit(1);
 	handle_alloc(node, ALLOC);
@@ -62,8 +50,8 @@ void	xfree(void *ptr)
 	node = memory_list_get_node(ptr);
 	prev = node->prev;
 	next = node->next;
-	if (node->del)
-		node->del(node->memory);
+	if (node->dtor)
+		node->dtor(node->memory);
 	free(node);
 	if (prev)
 		prev->next = next;

@@ -6,7 +6,7 @@
 /*   By: aguyon <aguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 09:42:48 by aguyon            #+#    #+#             */
-/*   Updated: 2023/08/29 01:32:31 by aguyon           ###   ########.fr       */
+/*   Updated: 2023/10/10 22:24:12 by aguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,20 @@ struct s_memory_list
 {
 	struct s_memory_list	*prev;
 	struct s_memory_list	*next;
-	void					(*del)(void *);
+	void					(*dtor)(void *);
 	char					memory[1];
 };
 
 /* LIBRARY FUNCTIONS */
 void			*xmalloc(size_t size);
-void			*xmalloc_del(size_t size, void *del);
+void			*xmalloc_dtor(size_t size, void *dtor);
 void			xfree(void *ptr);
 void			xfree_all(void) __attribute__((destructor));
+void			*xmalloc_no_exit(size_t size);
+void			*xmalloc_dtor_no_exit(size_t size, void *dtor);
 
 /*	UTILS	*/
+void			handle_alloc(t_memory_list *node, t_alloc_flag flag);
 void			memory_list_add(t_memory_list **glist, t_memory_list *node);
 t_memory_list	*memory_list_new(size_t size, void *del);
 void			memory_list_clear(t_memory_list **list);
