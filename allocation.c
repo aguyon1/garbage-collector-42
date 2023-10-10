@@ -6,7 +6,7 @@
 /*   By: aguyon <aguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 09:42:38 by aguyon            #+#    #+#             */
-/*   Updated: 2023/10/10 22:41:17 by aguyon           ###   ########.fr       */
+/*   Updated: 2023/10/10 22:45:54 by aguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*xmalloc(size_t size)
 
 	node = memory_list_new(size, NULL);
 	if (node == NULL)
-		exit(1);
+		exit(EXIT_FAILURE);
 	handle_memory_list(node, ALLOC);
 	return (node->memory);
 }
@@ -29,7 +29,7 @@ void	*xmalloc_dtor(size_t size, void *dtor)
 
 	node = memory_list_new(size, dtor);
 	if (node == NULL)
-		exit(1);
+		exit(EXIT_FAILURE);
 	handle_memory_list(node, ALLOC);
 	return (node->memory);
 }

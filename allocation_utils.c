@@ -6,7 +6,7 @@
 /*   By: aguyon <aguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 09:48:23 by aguyon            #+#    #+#             */
-/*   Updated: 2023/10/10 22:40:58 by aguyon           ###   ########.fr       */
+/*   Updated: 2023/10/10 22:45:27 by aguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_memory_list	*memory_list_new(size_t size, void *dtor)
 
 	new = malloc(sizeof(t_memory_list) + size - 1);
 	if (new == NULL)
-		exit(1);
+		return (NULL);
 	*new = (t_memory_list){.prev = NULL, .next = NULL, .dtor = dtor};
 	return (new);
 }
