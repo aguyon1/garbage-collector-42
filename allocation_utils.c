@@ -6,13 +6,13 @@
 /*   By: aguyon <aguyon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 09:48:23 by aguyon            #+#    #+#             */
-/*   Updated: 2023/10/10 22:24:01 by aguyon           ###   ########.fr       */
+/*   Updated: 2023/10/10 22:40:58 by aguyon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "allocation.h"
 
-void	handle_alloc(t_memory_list *node, t_alloc_flag flag)
+void	handle_memory_list(t_memory_list *node, t_alloc_flag flag)
 {
 	static t_memory_list	*memory_list = NULL;
 
